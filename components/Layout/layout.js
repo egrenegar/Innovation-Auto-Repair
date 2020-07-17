@@ -1,7 +1,10 @@
 import Head from 'next/head';
-// import utilStyles from '../styles/utils.module.css'
+import Link from 'next/link';
+import Header from '../Header/Header';
+import Footer from '../Footer/footer';
+import styles from './layout.module.css';
 
-export default function Layout({ children }) {
+export default function Layout({ children, employee }) {
     return (
         <div>
             <Head>
@@ -19,9 +22,22 @@ export default function Layout({ children }) {
                     href="../public/images/Innovation_Logo-no-bg.png"
                 />
             </Head>
-                <Header/>
-                    <main>{children}</main>
-                <Footer/>
+            {!employee ? (
+                <>
+                <Header />
+                <main>{ children }</main>
+                <Footer />
+                </>
+            ) : (
+                <>
+                    <div className={styles.backToHome}>
+                        <Link href="/">
+                            <a>← Back to home</a>
+                        </Link>
+                    </div>
+                    <main>{ children }</main>
+                </>
+            )}
             
         </div>
     );
