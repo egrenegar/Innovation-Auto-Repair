@@ -5,13 +5,13 @@
   display: block;
   background-color: var(--main-red);
   position: fixed;
-  z-index: 2;
+  z-index: 100;
 }
 
 .topHeader{
   width: 100%;
   height: 25px;
-  background-color: #000;
+  background-color: black;
   text-align: center;
 }
 
@@ -38,6 +38,7 @@
   height: 80px;
   display: block;
   margin: 0 auto;
+  z-index: 500;
 }
 
 .logoContainer{
@@ -74,19 +75,6 @@
 }
 
 .navigation > a li{
-  font-family: 'Source Sans Pro', sans-serif;
-  display: table-cell;
-  vertical-align: middle;
-  height: 100%;
-  color: white;
-  font-size: 20px;
-  transition: .3s ease-in-out;
-  opacity: 0.8;
-  text-decoration: none;
-}
-
-/* had to add this to handle the last li in the main navbar */
-.navigation li > a{
   font-family: 'Source Sans Pro', sans-serif;
   display: table-cell;
   vertical-align: middle;
@@ -154,7 +142,7 @@
   justify-content: center;
   align-items: center;
   transition: right .2s cubic-bezier(1, 0, 0, 1);
-  z-index: 1;
+  z-index: 50;
 }
 
 .change {

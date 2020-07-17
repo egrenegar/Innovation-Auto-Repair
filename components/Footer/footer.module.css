@@ -12,11 +12,16 @@
 .heading {
     font-size: 1.4rem;
 }
-
+.mainfooter a {
+    color: white;
+}
 .footer {
     margin-top: 1em;
     font-size: 1rem;
     text-align: center;
+}
+.mainfooter a {
+    color: #fff;
 }
 .employee:hover {
     cursor: pointer;

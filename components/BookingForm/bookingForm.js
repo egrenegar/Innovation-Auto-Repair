@@ -1,6 +1,6 @@
 import style from './form.module.css';
 import DatePicker from '../DatePicker/DatePicker';
-import API from '../../pages/api/API'
+import API from "../../util/API"
 
 export default class BookingForm extends React.Component {
 
@@ -22,6 +22,7 @@ export default class BookingForm extends React.Component {
     handleFormSubmit = (e) => {
         API.createAppointment(this.state.name, this.state.emailAddress, this.state.phoneNumber, this.state.description, this.state.selectedDate, this.state.selectedTime).then(() => {
             console.log('appointment made');
+            window.location.replace("/confirmation")
         })
         //Reset the character counter to 0
         this.setState({ messageLength: 0 });
@@ -65,7 +66,7 @@ export default class BookingForm extends React.Component {
         return (
             <div className={style.formDiv}>
                 <div className={style.heading}>
-                    <h1>Book an Appointment</h1>
+                    <h1>Book an Estimate</h1>
                     <hr className={style.formHr} />
                 </div>
                 <form

@@ -1,0 +1,16 @@
+.dashboardContainer {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.dashboardHr {
+    width: 15%;
+    border: 1px var(--main-red) solid;
+    margin: 1em auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .dashboardHr {
+        width: 5%;
+    }
+}

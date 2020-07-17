@@ -1,8 +1,8 @@
 import DatePicker from 'react-datepicker';
 import { useState, useEffect } from 'react';
 import '../BookingForm/form.module.css';
-import API from "../../pages/api/API"
-import { addDays, setHours, setMinutes, getDay, format, setMonth, setDate } from 'date-fns';
+import API from "../../util/API"
+import { addDays, setHours, setMinutes, getDay, format } from 'date-fns';
 
 const datePicker = (props) => {
     const [startDate, setStartDate] = useState(
@@ -16,12 +16,14 @@ const datePicker = (props) => {
       setHours(setMinutes(new Date(), 0), 13)
     ]
 
+    //Converts the blockout date to the appropriate data type
     const convertBlockout = (blockout) => {
       let blockoutArr = blockout.split(' ');
       let d = new Date(blockoutArr[2], parseInt(blockoutArr[0]) - 1, blockoutArr[1]);
       return d;
     }
 
+    //Array of excluded dates
     let excludedDateArr = []
 
     //Crates a state for the excluded times array
@@ -76,6 +78,7 @@ const datePicker = (props) => {
       filterData();
     }, [startDate])
 
+    //On load grab the blockout dates and push them to the array after converting them
     useEffect(() => {
       API.getBlockoutData()
       .then(result => {
@@ -83,7 +86,7 @@ const datePicker = (props) => {
           excludedDateArr.push(convertBlockout(item.date));
         })
       })
-    })
+    }, [])
 
     return (
       <DatePicker

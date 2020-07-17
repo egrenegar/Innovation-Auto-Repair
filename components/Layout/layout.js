@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/footer';
 import styles from './layout.module.css';
 
-export default function Layout({ children, employee }) {
+export default function Layout({ children, employee, home }) {
     return (
         <div>
             <Head>
@@ -19,12 +19,12 @@ export default function Layout({ children, employee }) {
                 <link
                     rel="shortcut icon"
                     type="img/png"
-                    href="../public/images/Innovation_Logo-no-bg.png"
+                    href="/images/Innovation_Logo-no-bg.png"
                 />
             </Head>
             {!employee ? (
                 <>
-                <Header />
+                <Header home={home}/>
                 <main>{ children }</main>
                 <Footer />
                 </>
